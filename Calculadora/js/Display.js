@@ -2,10 +2,10 @@ class Display {
     constructor(displayBeforeValue, displayCurrentValue) {
         this.displayCurrentValue = displayCurrentValue;
         this.displayBeforeValue = displayBeforeValue;
-        this.calculator = new Calculadora();//para realizar los calculos creo un nuevo objeto de calc
+        this.calculator = new Calculadora();
         
-        this.typeOperation = undefined;//para mostrar y no los simbolos
-        this.currentValue = ''; //valor vacio para quitar los numeros desde inicio
+        this.typeOperation = undefined;
+        this.currentValue = ''; 
         this.beforeValue = '';
         this.signs = {
             sum: '+',
@@ -36,21 +36,21 @@ class Display {
     }
 
     addNumber(numero) {
-        if(numero === '.' && this.currentValue.includes('.')) return //evitar repeticion de .... solo 1
-        this.currentValue = this.currentValue.toString() + numero.toString(); //convierto valores a string 
+        if(numero === '.' && this.currentValue.includes('.')) return 
+        this.currentValue = this.currentValue.toString() + numero.toString(); 
         this.printValue();
     }
 
     printValue() {
-        this.displayCurrentValue.textContent = this.currentValue; //TEXtcontent funciona con dom, nos devuelve valor que tiene
-        this.displayBeforeValue.textContent = `${this.beforeValue} ${this.signs[this.typeOperation] || ''}`;//template string para interpolar variables
+        this.displayCurrentValue.textContent = this.currentValue;
+        this.displayBeforeValue.textContent = `${this.beforeValue} ${this.signs[this.typeOperation] || ''}`;
     }
 
     calculations() {
-        const beforeValue = parseFloat(this.beforeValue);//paso a float los valores para mostrarlos
+        const beforeValue = parseFloat(this.beforeValue);
         const currentValue = parseFloat(this.currentValue);
 
-        if( isNaN(currentValue)  || isNaN(beforeValue) ) return //si not a number entonces vacio
+        if( isNaN(currentValue)  || isNaN(beforeValue) ) return
         this.currentValue = this.calculator[this.typeOperation](beforeValue, currentValue);
     }
 }
