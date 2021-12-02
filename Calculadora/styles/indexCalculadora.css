@@ -1,0 +1,81 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(0, 0, 0);
+}
+body {
+  margin: 0;
+  background-color: rgb(254, 254, 255);
+}
+
+.container {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  height: 100vh;
+  margin-left: 700px;
+}
+
+.calculator {
+  display: grid;
+  grid-template-columns: repeat(4, 95px);
+  grid-template-rows: 170px repeat(5, 95px);
+  background-color: rgba(58, 57, 57, 0.87);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px 5px #00000056;
+}
+
+button {
+  margin: 8px 8px 8px;
+  border-radius: 12px;
+  font-size: 1.7em;
+  border: none;
+  background-color: rgba(254, 255, 255, 0.747);
+  box-shadow: 10px 10px 10px -4px #00000091;
+}
+button:active {
+  background-color: #10d610be;
+}
+button :focus {
+  outline: none;
+}
+.operator {
+  font-weight: bold;
+  color: red;
+}
+
+.signs {
+  font-weight: bold;
+  color: red;
+}
+
+.display {
+  grid-column: 1 / -1;
+  padding: 25px;
+  display: flex;
+  margin: 15px 15px 35px;
+  flex-direction: column;
+  align-items: flex-end;
+  background-color: rgba(8, 248, 0, 0.801);
+  border-radius: 5px;
+  text-align: right;
+  justify-content: space-between;
+  word-break: break-all;
+  /* To prevent overflow, word breaks should be inserted between any two characters
+    https://developer.mozilla.org/en-US/docs/Web/CSS/word-break*/
+}
+
+.col-2 {
+  grid-column: span 2;
+}
+
+/* Values For Numbers */
+#before-value {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+#current-value {
+  font-weight: bold;
+  font-size: 1.5em;
+}
